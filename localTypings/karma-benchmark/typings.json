@@ -1,0 +1,7 @@
+{
+  "name": "karma-benchmark",
+  "main": "karma-benchmark.d.ts",
+  "dependencies": {
+    "benchmark": "registry:dt/benchmark#1.0.0+20160317120654"
+  }
+}

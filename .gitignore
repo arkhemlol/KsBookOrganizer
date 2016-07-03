@@ -1,0 +1,14 @@
+node_modules/
+bower_components/
+coverage/
+.sass-cache/
+.idea/
+.tmp/
+*.orig
+src/**/*.js
+src/**/config.ts
+*js.map
+dist/
+typings/
+
+debug.log

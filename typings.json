@@ -1,0 +1,18 @@
+{
+  "name": "tone",
+  "version": false,
+  "globalDependencies": {
+    "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#bb051830df88f5a55dcf06b7fe85bf6b62cc97f2",
+    "angular-cookies": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular-cookies.d.ts#bb051830df88f5a55dcf06b7fe85bf6b62cc97f2",
+    "angular-mocks": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular-mocks.d.ts#bb051830df88f5a55dcf06b7fe85bf6b62cc97f2",
+    "angular-ui-router": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-router/angular-ui-router.d.ts#bb051830df88f5a55dcf06b7fe85bf6b62cc97f2",
+    "benchmark": "registry:dt/benchmark#1.0.0+20160317120654",
+    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#bb051830df88f5a55dcf06b7fe85bf6b62cc97f2",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#bb051830df88f5a55dcf06b7fe85bf6b62cc97f2",
+    "karma-benchmark": "file:./localTypings/karma-benchmark/karma-benchmark.d.ts",
+    "karma-jasmine": "github:DefinitelyTyped/DefinitelyTyped/karma-jasmine/karma-jasmine.d.ts#bb051830df88f5a55dcf06b7fe85bf6b62cc97f2",
+    "lodash": "registry:dt/lodash#3.10.0+20160330154726",
+    "moment": "github:DefinitelyTyped/DefinitelyTyped/moment/moment.d.ts#bb051830df88f5a55dcf06b7fe85bf6b62cc97f2",
+    "moment-node": "github:DefinitelyTyped/DefinitelyTyped/moment/moment-node.d.ts#bb051830df88f5a55dcf06b7fe85bf6b62cc97f2"
+  }
+}

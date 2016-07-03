@@ -1,0 +1,62 @@
+{
+  "e2e": {
+    "name": "KS.config",
+    "stream": true,
+    "constants": {
+      "config": {
+        "apiHost": "/",
+        "useE2E": true
+      },
+      "mocks": {
+        "books": [{
+          "id": "1",
+          "header": "Pro TypeScript: Application-Scale JavaScript Development",
+          "authors": [{
+            "id": "2",
+            "name": "Steve",
+            "lastName": "Fenton",
+            "books": ["1"]
+          }],
+          "publisher": "Apress",
+          "publishYear": 2014,
+          "publishDate": "August 21, 2014",
+          "ISBN": 1430267917,
+          "img": "https://images-na.ssl-images-amazon.com/images/I/51XjeCyKUeL._SX404_BO1,204,203,200_.jpg"
+        }]
+      }
+    }
+  },
+  "dev": {
+    "name": "KS.config",
+    "stream": true,
+    "constants": {
+      "config": {
+        "apiHost": "/",
+        "modules": []
+      }
+    }
+  },
+  "test": {
+    "name": "KS.config",
+    "stream": true,
+    "constants": {
+      "config": {
+        "apiHost": "/",
+        "modules": []
+      },
+      "mocks": {
+        "books": []
+      }
+    }
+  },
+  "build": {
+    "name": "KS.config",
+    "stream": true,
+    "constants": {
+      "config": {
+        "apiHost": "/",
+        "modules": []
+      }
+    }
+  }
+}

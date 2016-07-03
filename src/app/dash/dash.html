@@ -1,0 +1,5 @@
+<h1>BOOKS</h1>
+<div class="ks-book-list" ng-repeat="book in dash.books track by _ks_id">
+  <div book="book"></div>
+</div>
+<uib-pagination class="ks-pagination" total-items="totalItems" ng-model="currentPage"></uib-pagination>

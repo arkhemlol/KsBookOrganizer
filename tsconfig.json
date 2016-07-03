@@ -1,0 +1,13 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "amd",
+    "target": "es5",
+    "sourceMap": true
+  },
+  "exclude": [
+    "bower_components",
+    "node_modules",
+    "typings"
+  ]
+}
