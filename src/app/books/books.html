@@ -1,4 +1,19 @@
-<h1>BOOKS</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand ks-brand" ui-sref="books.list">
+        <img width="40" height="40" alt="KSBookOrganizer" src="assets/images/KS_logo.png"></a>
+      <a class="navbar-brand" ui-sref="books.list">KSBookOrganizer</a>
+    </div>
+  </div>
+</nav>
 <div ncy-breadcrumb></div>
 <div ui-view=""></div>
-<uib-pagination class="ks-pagination" total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage"></uib-pagination>
+<div class="text-center">
+  <uib-pagination
+    class="ks-pagination"
+    total-items="totalItems"
+    ng-model="currentPage"
+    items-per-page="itemsPerPage">
+  </uib-pagination>
+</div>

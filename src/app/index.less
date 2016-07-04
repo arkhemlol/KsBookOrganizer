@@ -31,11 +31,15 @@
 @brand-gray-light: #c6cacc;
 @brand-dark-green: #006d55;
 @content-background: #f7f7f6;
+@content-background-darker: darken(@content-background, 6%);
 @brand-dark-gray: #373d42;
 @brand-white-hover: #f4f4f4;
 
-a, a:hover, a:active, a:focus {
-  outline: 0;
+
+@brand-primary: @brand-dark-green;
+
+body {
+  font: 14px/20px Helvetica Neue, Helvetica, Arial;
 }
 
 .color(@color) {
@@ -43,6 +47,10 @@ a, a:hover, a:active, a:focus {
 }
 .background-color(@bgcolor) {
   background-color: @bgcolor;
+}
+
+a, a:hover, a:active, a:focus {
+  outline: 0;
 }
 
 .vcenter-screen {

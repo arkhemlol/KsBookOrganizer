@@ -1,3 +1,6 @@
+.ks-brand {
+  padding: 4px 15px;
+}
 .ks-books-container {
   background: @content-background;
   margin: 10px 5px 10px -25px;
@@ -9,7 +12,11 @@
     display: inline-block;
     height: 200px;
     margin: 0 20px 10px 0;
-    background: #fff;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@content-background-darker), to(@content-background));
+    background: -webkit-linear-gradient(top, @content-background-darker, @content-background);
+    background: -moz-linear-gradient(top, @content-background-darker, @content-background);
+    background: -ms-linear-gradient(top, @content-background-darker, @content-background);
+    background: -o-linear-gradient(top, @content-background-darker, @content-background);
     border: 1px solid @brand-gray-light;
     border-radius: 4px;
     box-shadow: 2px 2px 2px 0 rgba(0,0,0, .4);
@@ -45,6 +52,7 @@
     }
     .book-item-footer {
       display: table;
+      height: auto;
       a {
         display: table-cell;
         text-align: right;
