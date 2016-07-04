@@ -75,6 +75,15 @@ export class UtilsService implements KS.core.IUtilsService {
     return obj._ks_id;
   };
 
+  addUid = (item: any) => {
+    this.stamp(item);
+    _.forOwn(item, (prop: any) => {
+        if(_.isArray(prop) && _.isObject(prop[0])) {
+          _.each(prop, this.addUid);
+        }
+    }, this);
+  };
+
   /**
    * Parse a given url with the use of an anchor element
    *

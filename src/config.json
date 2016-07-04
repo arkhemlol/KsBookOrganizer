@@ -17,44 +17,36 @@
             "lastName": "Fenton",
             "books": ["1"]
           }],
+          "pagesNumber": 248,
           "publisher": "Apress",
           "publishYear": 2014,
           "publishDate": "August 21, 2014",
-          "ISBN": 1430267917,
+          "ISBN": "1430267917",
           "img": "https://images-na.ssl-images-amazon.com/images/I/51XjeCyKUeL._SX404_BO1,204,203,200_.jpg"
         },
           {
             "id": "2",
-            "header": "Pro TypeScript: Application-Scale JavaScript Development",
+            "header": "Secrets of the JavaScript Ninja",
             "authors": [{
               "id": "2",
-              "name": "Steve",
-              "lastName": "Fenton",
-              "books": ["1"]
+              "name": "John",
+              "lastName": "Resig",
+              "books": ["2"]
+            }, {
+              "id": "3",
+              "name": "Bear",
+              "lastName": "Bibeault",
+              "books": ["2"]
             }],
-            "publisher": "Apress",
-            "publishYear": 2014,
-            "publishDate": "August 21, 2014",
-            "ISBN": 1430267917,
-            "img": "https://images-na.ssl-images-amazon.com/images/I/51XjeCyKUeL._SX404_BO1,204,203,200_.jpg"
+            "pagesNumber": 392,
+            "publisher": "Manning Publications",
+            "publishYear": 2013,
+            "publishDate": "January 17, 2013",
+            "ISBN": "193398869X",
+            "img": "https://images-na.ssl-images-amazon.com/images/I/51UYwOhvQPL._SX395_BO1,204,203,200_.jpg"
           },
           {
             "id": "3",
-            "header": "Pro TypeScript: Application-Scale JavaScript Development",
-            "authors": [{
-              "id": "3",
-              "name": "Steve",
-              "lastName": "Fenton",
-              "books": ["1"]
-            }],
-            "publisher": "Apress",
-            "publishYear": 2014,
-            "publishDate": "August 21, 2014",
-            "ISBN": 1430267917,
-            "img": "https://images-na.ssl-images-amazon.com/images/I/51XjeCyKUeL._SX404_BO1,204,203,200_.jpg"
-          },
-          {
-            "id": "4",
             "header": "Pro TypeScript: Application-Scale JavaScript Development",
             "authors": [{
               "id": "4",
@@ -62,10 +54,27 @@
               "lastName": "Fenton",
               "books": ["1"]
             }],
+            "pagesNumber": 248,
             "publisher": "Apress",
             "publishYear": 2014,
             "publishDate": "August 21, 2014",
-            "ISBN": 1430267917,
+            "ISBN": "1430267917",
+            "img": "https://images-na.ssl-images-amazon.com/images/I/51XjeCyKUeL._SX404_BO1,204,203,200_.jpg"
+          },
+          {
+            "id": "4",
+            "header": "Pro TypeScript: Application-Scale JavaScript Development",
+            "authors": [{
+              "id": "5",
+              "name": "Steve",
+              "lastName": "Fenton",
+              "books": ["1"]
+            }],
+            "pagesNumber": 248,
+            "publisher": "Apress",
+            "publishYear": 2014,
+            "publishDate": "August 21, 2014",
+            "ISBN": "1430267917",
             "img": "https://images-na.ssl-images-amazon.com/images/I/51XjeCyKUeL._SX404_BO1,204,203,200_.jpg"
           },
           {
@@ -77,10 +86,11 @@
               "lastName": "Fenton",
               "books": ["1"]
             }],
+            "pagesNumber": 248,
             "publisher": "Apress",
             "publishYear": 2014,
             "publishDate": "August 21, 2014",
-            "ISBN": 1430267917,
+            "ISBN": "1430267917",
             "img": "https://images-na.ssl-images-amazon.com/images/I/51XjeCyKUeL._SX404_BO1,204,203,200_.jpg"
           }]
       }

@@ -13,7 +13,7 @@ export class CRUDService<T> extends HttpService implements KS.core.ICRUDService<
   selectAll() {
     return this.$get(`${this.url}`).then((objects: any) => {
       if(objects && _.isArray(objects.result)) {
-        _.each(objects.result, this.utils.stamp);
+        _.each(objects.result, this.utils.addUid);
         return this.$q.when(objects);
       }
       return objects;

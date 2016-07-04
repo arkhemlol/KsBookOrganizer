@@ -1,5 +1,14 @@
+<div class="container-fluid">
+  <div class="form-inline ks-search">
+    <div class="form-group has-feedback">
+      <label for="search-books" class="control-label">Search books:</label>
+      <input type="text" id="search-books" class="form-control" ng-model="search.$">
+      <i class="fa fa-search form-control-feedback"></i>
+    </div>
+  </div>
+</div>
 <div class="container-fluid ks-books-container">
   <ul class="ks-book-list clearfix">
-    <div book="book" ng-repeat="book in books.books | orderBy:'-_ks_id' track by book._ks_id"></div>
+    <div book="book" ng-repeat="book in books.books | orderBy:'-_ks_id' | filter:search:strict track by book._ks_id"></div>
   </ul>
 </div>
