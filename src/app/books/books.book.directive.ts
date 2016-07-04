@@ -1,14 +1,13 @@
 export class BookDirective implements ng.IDirective {
   public restrict: string = 'EA';
+  public replace: boolean = true;
   public link: ng.IDirectiveLinkFn;
   public transclude: boolean = true;
   public scope: any  = {
     book: '='
   };
 
-  public template: string = '<div class="book-list-item" ng-if="book"><div class="book-heading">{{book.header}}</div>' +
-    '<div class="book-item-content"></div>' +
-    '<div class="book-item-footer"></div></div>';
+  public templateUrl: string = 'app/books/books.listItem.html';
 
   private unboundLinkFn: ng.IDirectiveLinkFn = (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
 

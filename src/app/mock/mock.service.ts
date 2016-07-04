@@ -1,7 +1,7 @@
 export class MockService implements KS.mock.IMockService {
   public API: KS.mock.IAPI;
   public $httpBackend: ng.IHttpBackendService;
-  public pagingLength: number = 10;
+  public pagingLength: number = 3;
 
   /** @ngInject */
   constructor($httpBackend: ng.IHttpBackendService, public config: KS.core.IConfig, public mocks: KS.core.IMocks, public $filter: ng.IFilterService) {
@@ -37,10 +37,7 @@ export class MockService implements KS.mock.IMockService {
             count:    bookList.length,
             previous: isPrevious,
             next:     isNext,
-            // sort field -> '/v1/books?sortBy=firstName'
-            // results:  $filter('orderBy')(bookList, params.sortBy || defaultSort)
-            //   .splice((params.page - 1) * self.pagingLength, self.pagingLength)
-            result: bookList.splice((params.page - 1) * self.pagingLength, self.pagingLength)
+            result: bookList
           }];
         });
     };

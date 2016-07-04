@@ -1,6 +1,6 @@
 ///<reference path="../index.d.ts"/>
 
-declare module KS.dash {
+declare module KS.books {
   export interface IAuthor {
     id: string;
     name: string;

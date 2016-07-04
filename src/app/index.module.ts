@@ -1,6 +1,6 @@
 /// <reference path='../../typings/index.d.ts' />
 import {name as coreName} from './core/core.module';
-import {name as dashName} from './dash/dash.module';
+import {name as booksName} from './books/books.module';
 import {name as mocksName} from './mock/mock.module';
 import {config} from './index.config';
 import {runBlock} from './index.run';
@@ -12,8 +12,10 @@ import {runBlock} from './index.run';
       'ngMessages',
       'ui.router',
       'ui.bootstrap',
+      'angularFileUpload',
+      'ncy-angular-breadcrumb',
       coreName,
-      dashName,
+      booksName,
       mocksName
     ]
   )

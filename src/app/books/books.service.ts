@@ -1,6 +1,6 @@
 import {CRUDService, CRUDServiceProvider} from '../core/core.entry';
 
-export class BooksService extends CRUDService<KS.dash.IBook> implements KS.dash.IBookService {
+export class BooksService extends CRUDService<KS.books.IBook> implements KS.books.IBookService {
   /**@ngInject*/
   constructor($injector: ng.auto.IInjectorService, url: string) {
     super($injector, url);

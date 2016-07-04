@@ -1,0 +1,65 @@
+.ks-books-container {
+  background: @content-background;
+  margin: 10px 5px 10px -25px;
+  padding: 10px;
+}
+.ks-book-list {
+  list-style: none;
+  .book-list-item {
+    display: inline-block;
+    height: 200px;
+    margin: 0 20px 10px 0;
+    background: #fff;
+    border: 1px solid @brand-gray-light;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0, .4);
+    .book-heading {
+      font-weight: 500;
+      font-size: 14px;
+      padding-bottom: 5px;
+      font-family: Helvetica, Arial, sans-serif;
+      border-bottom: 1px solid @brand-gray-light;
+    }
+    .book-item-content {
+      padding: 10px 0;
+      border-bottom: 1px solid @brand-gray-light;
+      display: table;
+      width: 100%;
+      .book-item-image, .book-item-info {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .book-item-image {
+        height: 100%;
+        img {
+          border-radius: 25px;
+          vertical-align: middle;
+          width: 100px;
+          height: 100px;
+        }
+      }
+      .book-item-info {
+        text-align: center;
+        font-size: 10px;
+      }
+    }
+    .book-item-footer {
+      display: table;
+      a {
+        display: table-cell;
+        text-align: right;
+        vertical-align: middle;
+        margin-left: 10px;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        i.fa {
+          line-height: 32px;
+        }
+      }
+    }
+  }
+}
+.ks-pagination {
+  margin: 0 auto;
+}
