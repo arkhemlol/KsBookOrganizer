@@ -1,12 +1,12 @@
 <div class="ks-book-author-details" ng-form="bookAuthor">
-    <div class="form-group" ng-class="{'has-error': bookAuthor.authorName.$touched && bookAuthor.authorName.$invalid,
-      'has-success': bookAuthor.authorName.$touched && bookAuthor.authorName.$valid}">
+    <div class="form-group" ng-class="{'has-error-imp': bookAuthor.authorName.$touched && bookAuthor.authorName.$invalid,
+      'has-success-imp': bookAuthor.authorName.$touched && bookAuthor.authorName.$valid}">
       <label for="author_name" class="control-label">Name</label>
       <input type="text" class="form-control" id="author_name" required ng-maxlength="20" name="authorName"
              ng-model="author.author.name">
     </div>
-    <div class="form-group" ng-class="{'has-error': bookAuthor.authorLastName.$touched && bookAuthor.authorLastName.$invalid,
-      'has-success': bookAuthor.authorLastName.$touched && bookAuthor.authorLastName.$valid}">
+    <div class="form-group" ng-class="{'has-error-imp': bookAuthor.authorLastName.$touched && bookAuthor.authorLastName.$invalid,
+      'has-success-imp': bookAuthor.authorLastName.$touched && bookAuthor.authorLastName.$valid}">
       <label for="author_lastName" class="control-label">Last name</label>
       <input type="text" class="form-control" id="author_lastName" required ng-maxlength="20" name="authorLastName"
              ng-model="author.author.lastName">

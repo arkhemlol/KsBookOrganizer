@@ -1,6 +1,6 @@
 
 export class UtilsService implements KS.core.IUtilsService {
-  private lastId: number = 0;
+  
   /**
    * Converts array of strings to enum
    * @param arr
@@ -69,20 +69,6 @@ export class UtilsService implements KS.core.IUtilsService {
     let result: number = moment().diff(moment(new Date(time)));
     return result < 0 ? Math.abs(result) : 0;
   }
-
-  stamp = (obj: any): number => {
-    obj._ks_id = obj._ks_id || ++this.lastId;
-    return obj._ks_id;
-  };
-
-  addUid = (item: any) => {
-    this.stamp(item);
-    _.forOwn(item, (prop: any) => {
-        if(_.isArray(prop) && _.isObject(prop[0])) {
-          _.each(prop, this.addUid);
-        }
-    }, this);
-  };
 
   /**
    * Parse a given url with the use of an anchor element

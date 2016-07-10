@@ -10,8 +10,7 @@ function getStates(): KS.core.IRouteState[] {
           this.totalItems = books.count;
           this.currentPage = 1;
           this.itemsPerPage = 3;
-          this.onPageChange = (e: any) => {
-            console.log(e);
+          this.onPageChange = () => {
             BooksService.getBooks({page: this.currentPage}).then((response: KS.books.IBooksResponse) => {
               if (response) {
                 $state.go('books.list', {books: response.result });
@@ -65,7 +64,7 @@ function getStates(): KS.core.IRouteState[] {
       config: {
         url: '/author/:id',
         templateUrl: 'app/books/books.author.html',
-        controller: function ($state: ng.ui.IStateService, $stateParams: ng.ui.IStateParamsService, UtilsService: KS.core.IUtilsService) {
+        controller: function ($state: ng.ui.IStateService, $stateParams: ng.ui.IStateParamsService) {
           this.author = $stateParams.author;
           this.book = $stateParams.book ? $stateParams.book : {};
           if (!_.isArray(this.book.authors)) {
@@ -76,7 +75,6 @@ function getStates(): KS.core.IRouteState[] {
             if(authorIdx !== -1) {
               this.book.authors.splice(this.book.authors[authorIdx], 1, this.author);
             } else {
-              UtilsService.stamp(this.author);
               this.book.authors = this.book.authors.concat(this.author);
             }
             $state.go('books.detail', {id: this.book._ks_id || 'new', book: this.book }, { reload: true });

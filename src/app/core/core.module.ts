@@ -8,8 +8,6 @@ angular.module('KS.core', ['ui.router', 'ngCookies', configName])
   .service('HttpService', core.HttpService)
   .service('UtilsService', core.UtilsService)
   .service('CRUD', core.CRUDService)
-  .service('ValidationService', core.ValidationService)
-  .directive('validation', core.Validation.Factory())
   .config((CRUDServiceProvider: KS.core.ICRUDServiceProvider) => {
     CRUDServiceProvider.url = '';
   })

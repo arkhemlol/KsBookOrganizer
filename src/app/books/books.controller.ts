@@ -7,7 +7,7 @@ export class BooksController extends GenericController {
     this.deleteBook = (id: string) => {
       BooksService.remove(id).then((response: KS.books.IBooksResponse) => {
         if (response && response.result && response.result.length) {
-          $state.go('books.list', null, {reload: true});
+          $state.go('books.list', {books: response.result}, {reload: true});
         }
       });
     };

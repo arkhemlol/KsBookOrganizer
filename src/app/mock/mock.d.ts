@@ -17,5 +17,11 @@ declare module KS.mock {
     passAllPost?: () => ng.mock.IRequestHandler;
     passAllHtml?: () => ng.mock.IRequestHandler;
   }
+  export interface IIncrementService {
+    stamp(obj: any): number;
+    addUid(collection: any): any;
+    removeUid(collection: any): any;
+    setLastUid(id: number): number;
+  }
 }
 

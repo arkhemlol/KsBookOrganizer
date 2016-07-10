@@ -14,5 +14,6 @@
 <div class="container-fluid ks-books-container">
   <ul class="ks-book-list clearfix">
     <div book="book" ng-repeat="book in books.books | orderBy:'-_ks_id' | filter:search:strict track by book._ks_id"></div>
+    <li class="text-center" ng-if="!books.books.length">No books at the storage. Press <code>Add book: <i class="fa fa-plus"></i></code> to add one.</li>
   </ul>
 </div>

@@ -9,38 +9,28 @@
       },
       "mocks": {
         "books": [{
-          "_ks_id": "1",
-          "header": "Pro TypeScript: Application-Scale JavaScript Development",
+          "header": "Pro TypeScript",
           "authors": [{
-            "_ks_id": "2",
             "name": "Steve",
-            "lastName": "Fenton",
-            "books": ["1"]
+            "lastName": "Fenton"
           }],
           "pagesNumber": 248,
           "publisher": "Apress",
-          "publishYear": 2014,
           "publishDate": "August 21, 2014",
           "ISBN": "1430267917",
           "img": "https://images-na.ssl-images-amazon.com/images/I/51XjeCyKUeL._SX404_BO1,204,203,200_.jpg"
         },
           {
-            "_ks_id": "3",
             "header": "Secrets of the JavaScript Ninja",
             "authors": [{
-              "_ks_id": "4",
               "name": "John",
-              "lastName": "Resig",
-              "books": ["3"]
+              "lastName": "Resig"
             }, {
-              "_ks_id": "5",
               "name": "Bear",
-              "lastName": "Bibeault",
-              "books": ["3"]
+              "lastName": "Bibeault"
             }],
             "pagesNumber": 392,
             "publisher": "Manning Publications",
-            "publishYear": 2013,
             "publishDate": "January 17, 2013",
             "ISBN": "193398869X",
             "img": "https://images-na.ssl-images-amazon.com/images/I/51UYwOhvQPL._SX395_BO1,204,203,200_.jpg"

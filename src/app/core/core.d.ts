@@ -110,8 +110,6 @@ declare module KS.core {
     checkCollection(collection: Object | Array<any>, item: any): boolean;
     isSameOrigin(url: string, origins?: string | string[]): boolean;
     formatTime(time: string): number;
-    stamp(obj: any): number;
-    addUid(collection: any): void;
   }
 
   export interface ICRUDService<T> {

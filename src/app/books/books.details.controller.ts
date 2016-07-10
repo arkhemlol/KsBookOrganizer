@@ -7,6 +7,10 @@ export class BooksDetailsController {
     book = $stateParams.book || book || {};
     $scope.header = book && book.header || 'New book';
     $scope.book = book;
+    $scope.dtOpened = false;
+    $scope.datepickerOptions = {
+      minDate: new Date(1800, 0, 1)
+    };
     $scope.deleteAuthor = (author: KS.books.IAuthor) => {
       _.remove($scope.book.authors, {_ks_id: author._ks_id});
       $state.go('books.detail', {book: $scope.book, id: $scope.book._ks_id}, {reload: true});
@@ -21,8 +25,6 @@ export class BooksDetailsController {
       }
     };
     let onErrorCb = (error: any) => console.log('Something went wrong');
-
-    // FILTERS
 
     uploader.filters.push({
       name: 'imageFilter',
@@ -46,6 +48,9 @@ export class BooksDetailsController {
       } else {
         BooksService.create($scope.book).then(onSuccessCb).catch(onErrorCb);
       }
+    }
+    $scope.openDt = () => {
+      $scope.dtOpened = true;
     }
   }
 }

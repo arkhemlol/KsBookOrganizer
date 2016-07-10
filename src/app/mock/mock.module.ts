@@ -9,4 +9,5 @@ angular.module('KS.mock', ['LocalStorageModule', 'KS.config'])
     localStorageServiceProvider
       .setPrefix('KS');
   })
+  .service('IncrementService', mock.IncrementService)
   .service('MockService', mock.MockService);

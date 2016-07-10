@@ -5,13 +5,14 @@
         <label for="bookDetail_header" class="control-label">Header</label>
         <input type="text" class="form-control" id="bookDetail_header" required ng-maxlength="30" ng-model="book.header" name="header">
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': bookDetail.authorsLength.$invalid, 'has-success': bookDetail.authorsLength.$valid}">
         <label for="bookDetail_authors" class="control-label">Authors</label>
         <button class="btn btn-xs btn-primary" id="bookDetail_authors" ui-sref="books.detail.author({id: 'new', book: book})"><i class="fa fa-plus"></i></button>
+        <input type="hidden" ng-model="book.authors[0]" name="authorsLength" required>
         <span class="help-block" ng-if="book.authors.length">
           Authors List:
           <ul class="authors-list">
-              <li ng-repeat="author in book.authors track by author._ks_id">
+              <li ng-repeat="author in book.authors">
                 <a ui-sref="books.detail.author({id: author._ks_id, author: author, book: book})">{{::author.name}} {{::author.lastName}}</a>
                 <button class="btn btn-xs btn-danger" ng-click="deleteAuthor(author)"><i class="fa fa-trash"></i></button>
               </li>
@@ -19,27 +20,32 @@
         </span>
         <div ui-view></div>
       </div>
-      <div class="form-group" ng-class="{'has-error': bookDetail.pageNumber.$touched && bookDetail.pageNumber.$invalid, 'has-success': bookDetail.pageNumber.$valid}">
+      <div class="form-group" ng-class="{'has-error': bookDetail.pagesNumber.$touched && bookDetail.pagesNumber.$invalid, 'has-success': bookDetail.pagesNumber.$valid}">
         <label for="bookDetail_pagesNumber" class="control-label">Pages number</label>
-        <input type="number" class="form-control" id="bookDetail_pagesNumber" required max="10000" min="0" ng-model="book.pageNumber" name="pageNumber">
+        <input type="number" class="form-control" id="bookDetail_pagesNumber" required max="10000" min="1" ng-model="book.pagesNumber" name="pagesNumber">
       </div>
       <div class="form-group" ng-class="{'has-error': bookDetail.publisher.$touched && bookDetail.publisher.$invalid,
       'has-success': bookDetail.publisher.$touched && bookDetail.publisher.$valid}">
         <label for="bookDetail_publisher" class="control-label">Publisher</label>
         <input type="text" class="form-control" id="bookDetail_publisher" ng-model="book.publisher" name="publisher" ng-maxlength="30">
       </div>
-      <div class="form-group" ng-class="{'has-error': bookDetail.publishYear.$touched && bookDetail.publishYear.$invalid, 'has-success': bookDetail.publishYear.$valid}">
-        <label for="bookDetail_publishYear" class="control-label">Publish Year</label>
-        <input type="number" min="1800" max="2016" class="form-control" id="bookDetail_publishYear" ng-model="book.publishYear" name="publishYear">
-      </div>
       <div class="form-group" ng-class="{'has-error': bookDetail.publishDate.$touched && bookDetail.publishDate.$invalid,
       'has-success': bookDetail.publishDate.$touched && bookDetail.publishDate.$valid}">
         <label for="bookDetail_publishDate" class="control-label">Publish Date</label>
-        <input type="date" class="form-control" id="bookDetail_publishDate" ng-model="book.publishDate" name="publishDate">
+        <p class="input-group">
+          <input type="text" class="form-control" id="bookDetail_publishDate" ng-model="book.publishDate" uib-datepicker-popup="dd/MM/yyyy"
+                 name="publishDate"
+                 datepicker-options="datepickerOptions"
+                 is-open="dtOpened"
+                 ng-required="true">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="openDt()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
       </div>
       <div class="form-group" ng-class="{'has-error': bookDetail.ISBN.$touched && bookDetail.ISBN.$invalid, 'has-success': bookDetail.ISBN.$valid}">
         <label for="bookDetail_ISBN" class="control-label">ISBN</label>
-        <input type="text" class="form-control" id="bookDetail_ISBN" required ng-pattern="/^\d{9}[\d|X]$/" ng-model="book.ISBN" name="ISBN">
+        <input type="text" class="form-control" id="bookDetail_ISBN" required ng-pattern="/(^[\d]{3}?[\-]\d{9}[\d|X]$)|(^\d{9}[\d|X]$)/" ng-model="book.ISBN" name="ISBN">
       </div>
       <div class="form-group">
         <label for="bookDetail_img" class="control-label">Cover image</label>

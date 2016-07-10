@@ -15,7 +15,7 @@
   list-style: none;
   .book-list-item {
     display: inline-block;
-    height: 200px;
+    height: 250px;
     margin: 0 20px 10px 0;
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@content-background-darker), to(@content-background));
     background: -webkit-linear-gradient(top, @content-background-darker, @content-background);
@@ -36,6 +36,8 @@
       padding: 10px 0;
       border-bottom: 1px solid @brand-gray-light;
       display: table;
+      height: 185px;
+      max-height: 185px;
       width: 100%;
       .book-item-image, .book-item-info {
         display: table-cell;
@@ -55,6 +57,12 @@
         font-size: 10px;
       }
     }
+    .book-item-footer {
+      height: 38px;
+      max-height: 38px;
+      text-align: right;
+      line-height: 38px;
+    }
   }
 }
 .ks-pagination {
@@ -70,4 +78,14 @@
       margin-bottom: 5px;
     }
   }
+}
+
+.has-success-imp {
+  .has-success();
+  border-color: @state-success-text !important;
+}
+
+.has-error-imp {
+  .has-error();
+  border-color: @state-danger-text !important;
 }

@@ -5,11 +5,21 @@ export class MockService implements KS.mock.IMockService {
   public storage: KS.books.IBook[];
 
   /** @ngInject */
-  constructor($httpBackend: ng.IHttpBackendService, public config: KS.core.IConfig, public localStorageService: any, public mocks: KS.core.IMocks, public $filter: ng.IFilterService) {
+  constructor($httpBackend: ng.IHttpBackendService, public config: KS.core.IConfig,
+              public localStorageService: any, public mocks: KS.core.IMocks,
+              public $filter: ng.IFilterService, public IncrementService: KS.mock.IIncrementService) {
     if(!localStorageService.length()) {
-      _.each(this.mocks.books, (obj: KS.books.IBook) => localStorageService.set(parseInt(obj._ks_id), obj));
+      _.each(this.mocks.books, (obj: KS.books.IBook) => {
+        obj.publishDate = new Date(obj.publishDate);
+        localStorageService.set(IncrementService.stamp(obj), IncrementService.addUid(obj));
+      });
     }
-    this.storage = _.map(localStorageService.keys(), localStorageService.get);
+    this.storage = _.map(localStorageService.keys(), (key: any) => {
+      let item = localStorageService.get(key);
+      IncrementService.setLastUid(item._ks_id);
+      item.publishDate = new Date(item.publishDate);
+      return item;
+    });
     this.$httpBackend = $httpBackend;
     this.initAPI();
   }
@@ -69,10 +79,10 @@ export class MockService implements KS.mock.IMockService {
           } catch(e) {
             return [500, {}, {message: 'Invalid data'}, 'Invalid data'];
           }
-          if (data && data._ks_id) {
-            data._ks_id = parseInt(data._ks_id);
+          if (data) {
+            data = self.IncrementService.addUid(data);
             self.storage = self.storage.concat(data);
-            self.localStorageService.set(data._ks_id, data);
+            self.localStorageService.set(self.IncrementService.stamp(data), data);
           }
           let pages = Math.ceil(self.storage.length / self.pagingLength);
           let isPrevious = params.page > 1;
@@ -93,12 +103,16 @@ export class MockService implements KS.mock.IMockService {
           let result = _.remove(self.storage, {_ks_id: parseInt(params.id)});
           if(result && result[0]) {
             self.localStorageService.remove(result[0]._ks_id);
+            self.IncrementService.removeUid(result[0]);
           }
+          let pages = Math.ceil(self.storage.length / self.pagingLength);
+          let isPrevious = params.page > 1;
+          let isNext = params.page < pages;
           return [200, {
-            count: result.length,
-            previous: false,
-            next: false,
-            result: result
+            count: self.storage.length,
+            previous: isPrevious,
+            next: isNext,
+            result: self.storage
           }];
         });
     };
