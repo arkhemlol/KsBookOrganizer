@@ -14,9 +14,9 @@ import {runBlock} from './index.run';
       'ui.bootstrap',
       'angularFileUpload',
       'ncy-angular-breadcrumb',
+      mocksName,
       coreName,
-      booksName,
-      mocksName
+      booksName
     ]
   )
     .config(config)

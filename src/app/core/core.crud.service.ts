@@ -10,19 +10,21 @@ export class CRUDService<T> extends HttpService implements KS.core.ICRUDService<
     this.utils = new UtilsService();
   }
 
-  selectAll() {
-    return this.$get(`${this.url}`).then((objects: any) => {
+  selectAll(params?: any) {
+    return this.$get(`${this.url}`, {params: params || {} }).then((objects: any) => {
+      let defer = this.$q.defer();
       if(objects && _.isArray(objects.result)) {
         _.each(objects.result, this.utils.addUid);
-        return this.$q.when(objects);
       }
-      return objects;
+      defer.resolve(objects);
+      return defer.promise;
     });
   }
   selectOne(id: string) {
     return this.$get(`${this.url}/${id}`);
   }
   create(item: T) {
+    this.utils.stamp(item);
     return this.$post(`${this.url}`, { data: item });
   }
   update(id: string, item: T) {

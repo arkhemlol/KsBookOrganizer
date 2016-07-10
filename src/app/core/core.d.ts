@@ -17,7 +17,7 @@ declare module KS.core {
   }
 
   export interface IMocks {
-    books: KS.dash.IBook[];
+    books: KS.books.IBook[];
   }
 
   export interface IHttpReq {
@@ -117,7 +117,7 @@ declare module KS.core {
   export interface ICRUDService<T> {
     selectAll?(): ng.IPromise<T[]>;
     selectMany?(ids: string[]): ng.IPromise<T[]>;
-    selectOne?(id?: string): ng.IPromise<T>;
+    selectOne?(id?: string): ng.IPromise<T[]>;
     create?(item: T): ng.IPromise<T>;
     update?(id: string, item: T): ng.IPromise<T>;
     remove?(id: string): ng.IPromise<T>;

@@ -10,6 +10,9 @@ declare module KS.mock {
   export interface IAPI {
     getBooks?: () => ng.mock.IRequestHandler;
     getBook?: () => ng.mock.IRequestHandler;
+    createBook?: () => ng.mock.IRequestHandler;
+    updateBook?: () => ng.mock.IRequestHandler;
+    deleteBook?: () => ng.mock.IRequestHandler;
     passAllGet?: () => ng.mock.IRequestHandler;
     passAllPost?: () => ng.mock.IRequestHandler;
     passAllHtml?: () => ng.mock.IRequestHandler;

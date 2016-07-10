@@ -5,6 +5,10 @@
       <input type="text" id="search-books" class="form-control" ng-model="search.$">
       <i class="fa fa-search form-control-feedback"></i>
     </div>
+    <div class="form-group">
+      <label for="add-book" class="control-label">Add book:</label>
+      <button type="button" id="add-book" class="btn btn-xs btn-primary" ui-sref="books.detail({id: 'new'})"><i class="fa fa-plus"></i></button>
+    </div>
   </div>
 </div>
 <div class="container-fluid ks-books-container">

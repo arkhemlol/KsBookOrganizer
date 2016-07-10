@@ -5,7 +5,7 @@
       <div class="book-item-info">
           <strong>Authors:</strong>
           <span>
-            <a ui-sref="/author/" ng-repeat="author in book.authors track by author._ks_id">
+            <a ui-sref="books.detail({book: book, id: book._ks_id})" ng-repeat="author in book.authors track by author._ks_id">
               {{author.name}}&nbsp;{{author.lastName}}
             </a>
           </span>
@@ -17,7 +17,7 @@
       </div>
       </div>
   <div class="book-item-footer">
-    <a class="btn btn-xs btn-primary" ui-sref="books.detail({id: book._ks_id, book: book})"><i class="fa fa-edit"></i></a>
-    <a class="btn btn-xs btn-primary" ng-click=""><i class="fa fa-trash-o"></i></a>
+    <a class="btn btn-xs btn-primary" ui-sref="books.detail({book: book, id: book._ks_id})"><i class="fa fa-edit"></i></a>
+    <a class="btn btn-xs btn-danger" ng-click="books.deleteBook(book._ks_id)"><i class="fa fa-trash-o"></i></a>
   </div>
 </li>

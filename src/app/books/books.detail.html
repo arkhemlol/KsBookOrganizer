@@ -1,2 +1,61 @@
-<form action="">
-</form>
+<div class="panel panel-default ks-book-detail-container clearfix">
+  <div class="panel-body col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+    <form name="bookDetail" novalidate ng-submit="onBookSave()">
+      <div class="form-group" ng-class="{'has-error': bookDetail.header.$touched && bookDetail.header.$invalid, 'has-success': bookDetail.header.$valid}">
+        <label for="bookDetail_header" class="control-label">Header</label>
+        <input type="text" class="form-control" id="bookDetail_header" required ng-maxlength="30" ng-model="book.header" name="header">
+      </div>
+      <div class="form-group">
+        <label for="bookDetail_authors" class="control-label">Authors</label>
+        <button class="btn btn-xs btn-primary" id="bookDetail_authors" ui-sref="books.detail.author({id: 'new', book: book})"><i class="fa fa-plus"></i></button>
+        <span class="help-block" ng-if="book.authors.length">
+          Authors List:
+          <ul class="authors-list">
+              <li ng-repeat="author in book.authors track by author._ks_id">
+                <a ui-sref="books.detail.author({id: author._ks_id, author: author, book: book})">{{::author.name}} {{::author.lastName}}</a>
+                <button class="btn btn-xs btn-danger" ng-click="deleteAuthor(author)"><i class="fa fa-trash"></i></button>
+              </li>
+          </ul>
+        </span>
+        <div ui-view></div>
+      </div>
+      <div class="form-group" ng-class="{'has-error': bookDetail.pageNumber.$touched && bookDetail.pageNumber.$invalid, 'has-success': bookDetail.pageNumber.$valid}">
+        <label for="bookDetail_pagesNumber" class="control-label">Pages number</label>
+        <input type="number" class="form-control" id="bookDetail_pagesNumber" required max="10000" min="0" ng-model="book.pageNumber" name="pageNumber">
+      </div>
+      <div class="form-group" ng-class="{'has-error': bookDetail.publisher.$touched && bookDetail.publisher.$invalid,
+      'has-success': bookDetail.publisher.$touched && bookDetail.publisher.$valid}">
+        <label for="bookDetail_publisher" class="control-label">Publisher</label>
+        <input type="text" class="form-control" id="bookDetail_publisher" ng-model="book.publisher" name="publisher" ng-maxlength="30">
+      </div>
+      <div class="form-group" ng-class="{'has-error': bookDetail.publishYear.$touched && bookDetail.publishYear.$invalid, 'has-success': bookDetail.publishYear.$valid}">
+        <label for="bookDetail_publishYear" class="control-label">Publish Year</label>
+        <input type="number" min="1800" max="2016" class="form-control" id="bookDetail_publishYear" ng-model="book.publishYear" name="publishYear">
+      </div>
+      <div class="form-group" ng-class="{'has-error': bookDetail.publishDate.$touched && bookDetail.publishDate.$invalid,
+      'has-success': bookDetail.publishDate.$touched && bookDetail.publishDate.$valid}">
+        <label for="bookDetail_publishDate" class="control-label">Publish Date</label>
+        <input type="date" class="form-control" id="bookDetail_publishDate" ng-model="book.publishDate" name="publishDate">
+      </div>
+      <div class="form-group" ng-class="{'has-error': bookDetail.ISBN.$touched && bookDetail.ISBN.$invalid, 'has-success': bookDetail.ISBN.$valid}">
+        <label for="bookDetail_ISBN" class="control-label">ISBN</label>
+        <input type="text" class="form-control" id="bookDetail_ISBN" required ng-pattern="/^\d{9}[\d|X]$/" ng-model="book.ISBN" name="ISBN">
+      </div>
+      <div class="form-group">
+        <label for="bookDetail_img" class="control-label">Cover image</label>
+        <div class="book-images-container" ng-repeat="item in uploader.queue track by item.file.name" ng-if="uploader.queue.length">
+          <div class="book-image" ng-show="uploader.isHTML5" ks-upload="{ file: item._file, height: 100 }"></div>
+        </div>
+        <div class="book-images-container" ng-if="!uploader.queue.length && book.img">
+          <div class="book-image" ks-upload="{ file: book.img, height: 100 }"></div>
+        </div>
+        <input type="file" nv-file-select uploader="uploader" model="book.img" class="form-control" id="bookDetail_img" />
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary" type="submit" ng-disabled="bookDetail.$invalid">OK</button>
+        <button class="btn btn-default" ui-sref="books.list">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+

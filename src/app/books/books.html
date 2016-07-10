@@ -12,8 +12,9 @@
 <div class="text-center">
   <uib-pagination
     class="ks-pagination"
-    total-items="totalItems"
-    ng-model="currentPage"
-    items-per-page="itemsPerPage">
+    total-items="pag.totalItems"
+    ng-model="pag.currentPage"
+    items-per-page="pag.itemsPerPage"
+    ng-change="pag.onPageChange()">
   </uib-pagination>
 </div>
