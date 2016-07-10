@@ -9,7 +9,6 @@ import {runBlock} from './index.run';
 
   angular.module('KS',
     [
-      'ngMessages',
       'ui.router',
       'ui.bootstrap',
       'angularFileUpload',

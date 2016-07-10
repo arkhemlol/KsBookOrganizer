@@ -14,11 +14,14 @@ export class MockService implements KS.mock.IMockService {
         localStorageService.set(IncrementService.stamp(obj), IncrementService.addUid(obj));
       });
     }
-    this.storage = _.map(localStorageService.keys(), (key: any) => {
+    this.storage = [];
+    _.each(localStorageService.keys(), (key: any) => {
       let item = localStorageService.get(key);
-      IncrementService.setLastUid(item._ks_id);
-      item.publishDate = new Date(item.publishDate);
-      return item;
+      if(_.isObject(item)) {
+        IncrementService.setLastUid(item._ks_id);
+        item.publishDate = new Date(item.publishDate);
+        this.storage.push(item);
+      }
     });
     this.$httpBackend = $httpBackend;
     this.initAPI();

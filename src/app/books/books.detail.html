@@ -1,7 +1,7 @@
 <div class="panel panel-default ks-book-detail-container clearfix">
   <div class="panel-body col-xs-12 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
     <form name="bookDetail" novalidate ng-submit="onBookSave()">
-      <div class="form-group" ng-class="{'has-error': bookDetail.header.$touched && bookDetail.header.$invalid, 'has-success': bookDetail.header.$valid}">
+      <div class="form-group" ng-class="{'has-error': bookDetail.header.$invalid, 'has-success': bookDetail.header.$valid}">
         <label for="bookDetail_header" class="control-label">Header</label>
         <input type="text" class="form-control" id="bookDetail_header" required ng-maxlength="30" ng-model="book.header" name="header">
       </div>
@@ -14,23 +14,27 @@
           <ul class="authors-list">
               <li ng-repeat="author in book.authors">
                 <a ui-sref="books.detail.author({id: author._ks_id, author: author, book: book})">{{::author.name}} {{::author.lastName}}</a>
-                <button class="btn btn-xs btn-danger" ng-click="deleteAuthor(author)"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-xs btgvyhbfc uj tn-danger" ng-click="deleteAuthor(author)"><i class="fa fa-trash"></i></button>
               </li>
           </ul>
         </span>
         <div ui-view></div>
       </div>
-      <div class="form-group" ng-class="{'has-error': bookDetail.pagesNumber.$touched && bookDetail.pagesNumber.$invalid, 'has-success': bookDetail.pagesNumber.$valid}">
+      <div class="form-group" ng-class="{'has-error': bookDetail.pagesNumber.$invalid, 'has-success': bookDetail.pagesNumber.$valid}">
         <label for="bookDetail_pagesNumber" class="control-label">Pages number</label>
         <input type="number" class="form-control" id="bookDetail_pagesNumber" required max="10000" min="1" ng-model="book.pagesNumber" name="pagesNumber">
       </div>
-      <div class="form-group" ng-class="{'has-error': bookDetail.publisher.$touched && bookDetail.publisher.$invalid,
-      'has-success': bookDetail.publisher.$touched && bookDetail.publisher.$valid}">
+      <div class="form-group" ng-class="{'has-error': bookDetail.publisher.$invalid,
+      'has-success': bookDetail.publisher.$valid}">
         <label for="bookDetail_publisher" class="control-label">Publisher</label>
         <input type="text" class="form-control" id="bookDetail_publisher" ng-model="book.publisher" name="publisher" ng-maxlength="30">
       </div>
-      <div class="form-group" ng-class="{'has-error': bookDetail.publishDate.$touched && bookDetail.publishDate.$invalid,
-      'has-success': bookDetail.publishDate.$touched && bookDetail.publishDate.$valid}">
+      <div class="form-group" ng-class="{'has-error': bookDetail.publishYear.$invalid, 'has-success': bookDetail.publishYear.$valid}">
+        <label for="bookDetail_publishYear" class="control-label">Publish Year</label>
+        <input type="number" min="1800" max="2016" class="form-control" id="bookDetail_publishYear" ng-model="book.publishYear" name="publishYear">
+      </div>
+      <div class="form-group" ng-class="{'has-error': bookDetail.publishDate.$invalid,
+      'has-success': bookDetail.publishDate.$valid}">
         <label for="bookDetail_publishDate" class="control-label">Publish Date</label>
         <p class="input-group">
           <input type="text" class="form-control" id="bookDetail_publishDate" ng-model="book.publishDate" uib-datepicker-popup="dd/MM/yyyy"
@@ -43,7 +47,7 @@
           </span>
         </p>
       </div>
-      <div class="form-group" ng-class="{'has-error': bookDetail.ISBN.$touched && bookDetail.ISBN.$invalid, 'has-success': bookDetail.ISBN.$valid}">
+      <div class="form-group" ng-class="{'has-error': bookDetail.ISBN.$invalid, 'has-success': bookDetail.ISBN.$valid}">
         <label for="bookDetail_ISBN" class="control-label">ISBN</label>
         <input type="text" class="form-control" id="bookDetail_ISBN" required ng-pattern="/(^[\d]{3}?[\-]\d{9}[\d|X]$)|(^\d{9}[\d|X]$)/" ng-model="book.ISBN" name="ISBN">
       </div>

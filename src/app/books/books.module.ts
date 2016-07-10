@@ -2,7 +2,7 @@ import * as books from './books.entry';
 import {name as coreName} from '../core/core.module';
 export let name: string = 'KS.books';
 'use strict';
-angular.module('KS.books', ['angularFileUpload', coreName])
+angular.module('KS.books', ['angularFileUpload', 'LocalStorageModule', coreName])
   .decorator('FileSelect', ['$delegate', ($delegate: any) => {
     $delegate.prototype.onChange = function () {
       let files = this.uploader.isHTML5 ? this.element[0].files : this.element[0];
@@ -22,7 +22,6 @@ angular.module('KS.books', ['angularFileUpload', coreName])
   .service('Books', books.BooksService)
   .controller('BooksController', books.BooksController)
   .controller('BooksDetailsController', books.BooksDetailsController)
-  .directive('book', books.BookDirective.Factory())
   .directive('ksUpload', books.BookUploadDirective.Factory())
   .config((BooksServiceProvider: KS.core.ICRUDServiceProvider) => {
     BooksServiceProvider.url = 'books';

@@ -1,19 +1,48 @@
 <div class="container-fluid">
-  <div class="form-inline ks-search">
-    <div class="form-group has-feedback">
-      <label for="search-books" class="control-label">Search books:</label>
-      <input type="text" id="search-books" class="form-control" ng-model="search.$">
-      <i class="fa fa-search form-control-feedback"></i>
+  <div class="form-inline">
+    <div class="form-group">
+      <label class="control-label">Order by:</label>
+    </div>
+    <div class="form-group">
+      <ul class="nav nav-pills">
+        <li ng-class="{'active': order=='header'}"><a href="#" ng-click="setOrder('header')">Header</a></li>
+        <li ng-class="{'active': order=='publishYear'}"><a href="#" ng-click="setOrder('publishYear')">Publish
+          Year</a>
+        </li>
+      </ul>
     </div>
     <div class="form-group">
       <label for="add-book" class="control-label">Add book:</label>
       <button type="button" id="add-book" class="btn btn-xs btn-primary" ui-sref="books.detail({id: 'new'})"><i class="fa fa-plus"></i></button>
     </div>
   </div>
-</div>
+  </div>
 <div class="container-fluid ks-books-container">
   <ul class="ks-book-list clearfix">
-    <div book="book" ng-repeat="book in books.books | orderBy:'-_ks_id' | filter:search:strict track by book._ks_id"></div>
-    <li class="text-center" ng-if="!books.books.length">No books at the storage. Press <code>Add book: <i class="fa fa-plus"></i></code> to add one.</li>
+    <li class="book-list-item col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-if="book" ng-repeat="book in books | orderBy:order">
+      <div class="book-heading">{{book.header}}</div>
+      <div class="book-item-content clearfix">
+        <div class="book-item-image"><img ng-src="{{book.img}}" alt="{{book.header}}"></div>
+        <div class="book-item-info">
+          <strong>Authors:</strong>
+          <span>
+            <a ui-sref="books.detail({book: book, id: book._ks_id})" ng-repeat="author in book.authors track by author._ks_id">
+              {{author.name}}&nbsp;{{author.lastName}}
+            </a>
+          </span>
+          <strong>Publisher:</strong><span>{{book.publisher}}</span>
+          <strong>Publish Year:</strong><span>{{book.publishYear }}</span>
+          <strong>Pages Number:</strong><span>{{book.pagesNumber}}</span>
+          <strong>Publish date:</strong>{{book.publishDate | date}}<span></span>
+          <strong>ISBN:</strong><span>{{book.ISBN}}</span>
+        </div>
+      </div>
+      <div class="book-item-footer">
+        <a class="btn btn-xs btn-primary" ui-sref="books.detail({book: book, id: book._ks_id})"><i class="fa fa-edit"></i></a>
+        <a class="btn btn-xs btn-danger" ng-click="deleteBook(book._ks_id)"><i class="fa fa-trash-o"></i></a>
+      </div>
+    </li>
+    <li class="text-center" ng-if="!books.length">No books at the storage. Press <code>Add book: <i class="fa fa-plus"></i></code> to add one.</li>
   </ul>
 </div>
+

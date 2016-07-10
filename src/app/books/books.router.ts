@@ -30,7 +30,6 @@ function getStates(): KS.core.IRouteState[] {
         url: '',
         templateUrl: 'app/books/books.list.html',
         controller: 'BooksController',
-        controllerAs: 'books',
         params: {books: null},
         ncyBreadcrumb: {
           label: 'Books'
